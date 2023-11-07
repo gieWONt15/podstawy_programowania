@@ -8,11 +8,12 @@ class Program
         int iterator = 0;
         while (suma <= 100)
         {
+            Console.WriteLine("Podaj liczbę");
+            suma += Convert.ToInt32(Console.ReadLine());
             iterator++;
-            suma += iterator;
         }
-        Console.WriteLine("Suma: " + suma);
         Console.WriteLine("Ilość liczb dodanych: " + iterator);
+        Console.ReadLine();
     }
 }
 
