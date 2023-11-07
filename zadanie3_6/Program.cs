@@ -6,16 +6,27 @@ class Program
     {
         Console.WriteLine("Podaj liczbę wyrazów ciągu Fibonacciego: ");
         int max = Convert.ToInt32(Console.ReadLine());
-        int a = 0, b = 1, suma = 0;
+        int n, f1, f2, suma = 0;
 
-        for (int i = 0; i < max; i++)
+        if (max == 0)
         {
-            int temp = a;
-            a = b;
-            b = temp + b;
-            suma += b;
-            Console.WriteLine(b);
+            Console.WriteLine(0);
         }
+        else if (max == 1)
+        {
+            Console.WriteLine(1);
+        }
+        else
+        {
+            f1 = 1; f2 = 0;
+            for (int i = 2; i <= max; i++)
+            {
+                suma = f1 + f2;
+                f2 = f1;
+                f1 = suma;
+            }
+        }
+
         Console.WriteLine($"Suma wynosi: {suma}");
         Console.ReadLine();
     }
