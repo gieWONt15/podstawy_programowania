@@ -4,14 +4,21 @@ class Program
 {
     static void Main(string[] args)
     {
-        double kwota = 10000;
-        double procent = 0.05;
+        double poczatkowaKwota = 10000.0;
+        double oprocentowanieRoczne = 0.05;
+        int liczbaMiesiecy = 12;
+        double kwotaPoRoku = poczatkowaKwota;
 
-        for (int i = 0; i < 12; i++)
+        for (int miesiac = 1; miesiac <= liczbaMiesiecy; miesiac++)
         {
-
+            double odsetkiMiesieczne = kwotaPoRoku * (oprocentowanieRoczne / 12);
+            kwotaPoRoku += odsetkiMiesieczne;
         }
 
+        double zysk = kwotaPoRoku - poczatkowaKwota;
+
+        Console.WriteLine($"Kwota po roku wynosi: {kwotaPoRoku:C}");
+        Console.WriteLine($"Zysk z odsetek wynosi: {zysk:C}");
+        Console.ReadLine();
     }
 }
-// Kwota_inwestycji × (1 + Oprocentowanie / Liczba_okresów_kapitalizacji) ^ (Liczba_okresów_kapitalizacji × Okres_trwania_lokaty) – Kwota_inwestycji
